@@ -283,7 +283,11 @@ socket.on('clickCheck', (data)=>{
 
 socket.on('playboy', (data)=>{
     $('#action').html(`<p><strong>${data.turnPlayer.name}が少年を出しました。</strong></p>`)
-    $('#whoseturn').html(`<p><strong>${data.criminal.name}が犯人カードを持っています。</strong></p>`);
+    if(data.turnPlayer.socketID === socket.id){
+$('#whoseturn').html(`<p><strong>${data.criminal.name}が犯人カードを持っています。</strong></p>`);
+}else{
+$('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が犯人カードを確認しています。</strong></p>`);
+} 
     $('#checkbuttonarea').show()
 })
 
