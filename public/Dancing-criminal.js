@@ -290,7 +290,7 @@ socket.on('playboy', (data)=>{
     }else{
         $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が犯人カードを確認しています。</strong></p>`);
     } 
-    if(socket.id === dogchoicedata.turnPlayer.socketid){
+    if(socket.id === data.turnPlayer.socketID){
         $('#checkbuttonarea').show();
     };
 })
