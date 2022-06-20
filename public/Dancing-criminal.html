@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>犯人は踊る</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./Dancing-criminal.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="nameinputarea" class="buttonarea">
+            <h1>名前を入力してください</h1>
+            <div id="startbuttonarea" class="buttonarea"><button id="startbutton">開始</button></div>
+            <div id="names"></div>
+        </div>
+        <div id="action"></div>
+        <div id="whoseturn"></div>
+        <div id="checkbuttonarea" class="buttonarea"><button id="checkbutton">確認した</button></div>
+        <div id="players"></div>
+        <ul id="scorearea"></ul>
+        <div id="newgamebuttonarea" class="buttonarea">
+            <button id="newgamebutton">もう一度遊ぶ</button>
+        </div>
+        <div id="initializebuttonarea" class="buttonarea">
+            <button id="initializebutton">人数変更</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script src="./Dancing-criminal.js"></script>
+</body>
+
+</html>

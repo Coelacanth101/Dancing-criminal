@@ -1,0 +1,70 @@
+.container{
+    max-width: 800px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#whoseturn, #action{
+    height: 5%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+p{
+    font-size: small;
+}
+#players{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-height: 100%;
+}
+
+    .player{
+        width: 310px;
+        height: 250px;
+        margin:1px auto;
+        border: 3px solid black; 
+        border-radius: 5px;
+    }
+        .name{
+            text-align: center;
+            width:100%;
+            height: 10%;
+        }
+        .cardarea{
+            width:100%;
+            height:90%;
+            min-height: 90%;
+            border-top: 3px solid black;
+        }
+            .hands{
+                width:100%;
+                height: 50%;
+                vertical-align: middle;
+                display: flex;
+                justify-content: center;
+                border-bottom: 1.5px solid black;
+            }
+            .used{
+                width:auto;
+                height: calc(50% - 3px);
+                display: flex;
+                vertical-align: middle;
+                justify-content: center;
+                border-top: 1.5px solid black;
+            }
+                .hands img{
+                    min-width: 50px;
+                    padding: 1%;
+                }
+                .used img{
+                    padding: 1%;
+                    min-width: 50px;
+                }
+.buttonarea{
+    width: 100%;
+    text-align: center;
+}
+
