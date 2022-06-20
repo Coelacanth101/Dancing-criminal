@@ -365,7 +365,7 @@ function gameover(){
   let result = win + lose + 'です。'
   phase = 'finished';
   for(w of winner){
-      w.score += 1;
+      w.score += loser.length;
   };
   for(l of loser){
       l.score -= 1;
