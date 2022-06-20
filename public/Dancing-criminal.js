@@ -273,7 +273,7 @@ socket.on('dogChoice', (dogchoicedata)=>{
         $('#action').html(`<p><strong>${dogchoicedata.criminal.name}が犯人でした。</strong></p>`)
     } else {
         $('#whoseturn').html(`<p><strong>${dogchoicedata.cardHolder.name}の${jpName(dogchoicedata.cardType)}を見ました。</strong></p>`)
-        if(socket.id === dogchoicedata.turnPlayer.socketid){
+        if(socket.id === dogchoicedata.turnPlayer.socketID){
             $('#checkbuttonarea').show();
         }
     }
