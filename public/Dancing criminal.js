@@ -158,7 +158,7 @@ socket.on('reload', (players)=>{
             let i = 1
             while(i <= players[p-1].hands.length){
                 $(`#player${p} .hands`).append(
-                    `<img src="./tail.jpg" alt="tail" id="player${p}card${i}" data-cardnumber="${i}" class="card ${players[p-1].hands[i-1]}">`
+                    `<img src="./back.jpg" alt="back" id="player${p}card${i}" data-cardnumber="${i}" class="card ${players[p-1].hands[i-1]}">`
                 );
                 i += 1;
             };
