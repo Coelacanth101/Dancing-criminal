@@ -40,7 +40,7 @@ p{
             border-top: 3px solid black;
         }
             .hands{
-                width:100%;
+                width:auto;
                 height: 50%;
                 vertical-align: middle;
                 display: flex;
@@ -48,7 +48,7 @@ p{
                 border-bottom: 1.5px solid black;
             }
             .used{
-                width:100%;
+                width:auto;
                 height: calc(50% - 3px);
                 display: flex;
                 vertical-align: middle;
