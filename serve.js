@@ -69,7 +69,6 @@ class Player{
 
 
 io.on("connection", (socket)=>{
-  initialize()
   //名前の入力
   socket.on("nameInput", (data)=>{
     if(!arrayHasID(playersName, socket.id)){
