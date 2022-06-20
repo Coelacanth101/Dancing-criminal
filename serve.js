@@ -9,7 +9,7 @@ const DOCUMENT_ROOT = __dirname + "/public";
 const SECRET_TOKEN = "abcdefghijklmn12345";
 
 app.get("/", (req, res)=>{
-  res.sendFile(DOCUMENT_ROOT + "/Dancing criminal.html");
+  res.sendFile(DOCUMENT_ROOT + "/Dancing-criminal.html");
 });
 
 app.get("/:file", (req, res)=>{
