@@ -271,9 +271,11 @@ socket.on('dogChoice', (dogchoicedata)=>{
         $('#action').html(`<p><strong>${dogchoicedata.criminal.name}が犯人でした。</strong></p>`)
     } else {
         $('#whoseturn').html(`<p><strong>${dogchoicedata.cardHolder.name}の${jpName(dogchoicedata.cardType)}を見ました。</strong></p>`)
-        $('#checkbuttonarea').show()
-    }
-})
+        if(socket.id === dogchoicedata.turnPlayer.socketID){
+            $('#checkbuttonarea').show();
+        };
+    };
+});
 
 socket.on('clickCheck', (data)=>{
     $('#checkbuttonarea').hide();
@@ -282,11 +284,13 @@ socket.on('clickCheck', (data)=>{
 socket.on('playboy', (data)=>{
     $('#action').html(`<p><strong>${data.turnPlayer.name}が少年を出しました。</strong></p>`)
     if(data.turnPlayer.socketID === socket.id){
-$('#whoseturn').html(`<p><strong>${data.criminal.name}が犯人カードを持っています。</strong></p>`);
-}else{
-$('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が犯人カードを確認しています。</strong></p>`);
-} 
-    $('#checkbuttonarea').show()
+        $('#whoseturn').html(`<p><strong>${data.criminal.name}が犯人カードを持っています。</strong></p>`);
+    }else{
+        $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が犯人カードを確認しています。</strong></p>`);
+    } 
+    if(socket.id === dogchoicedata.turnPlayer.socketID){
+        $('#checkbuttonarea').show();
+    };
 })
 
 socket.on('playordinary', (data)=>{
@@ -367,6 +371,7 @@ socket.on('witnessChoice', (data)=>{
             $(`#${data.clickedPlayer.id}card${c}`).attr("src", `./${data.clickedPlayer.hands[c-1]}.jpg`);
             c += 1;
         }
+        $('#checkbuttonarea').show()
     }
     let cards = '';
     let i = 1;
@@ -376,7 +381,6 @@ socket.on('witnessChoice', (data)=>{
     }
     cards = cards.slice(1);
     $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が${data.clickedPlayer.name}の手札を見ています。</strong></p>`);
-    $('#checkbuttonarea').show()
 })
 
 function clickCheck(){
