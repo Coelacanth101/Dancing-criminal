@@ -75,12 +75,11 @@ socket.on('nameDisplay', (playersName)=>{
     console.log(playersName)
     console.log('nameDisplay')
     let i = 1
-    while(i<=8){
-        playersName[i-1].name
-        if(playersName[i-1].name){
+    for(player of playersName){
+        if(player.name){
             $('#names').append(
                 `<div class="player${i-1}">
-                <p><strong>${playersName[i-1].name}</strong></p>
+                <p><strong>${player.name}</strong></p>
                 </div>`
             )
         }else{
