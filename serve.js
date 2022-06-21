@@ -219,6 +219,9 @@ function turnOver(){
   } else {
       io.emit('turnOver', turnPlayer)
   }
+  for(player of players){
+    handsshuffle(player)
+  }
   reload();
   phase = 'play'
 }
