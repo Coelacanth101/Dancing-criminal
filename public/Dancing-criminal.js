@@ -295,7 +295,8 @@ socket.on('dogChoice', (dogchoicedata)=>{
         $('#whoseturn').html(`<p><strong>${dogchoicedata.cardHolder.name}の${jpName(dogchoicedata.cardType)}を見ました。</strong></p>`)
         if(socket.id === dogchoicedata.turnPlayer.socketID){
             $('#checkbuttonarea').show();
-            socket.emit('handsshuffle', dogchoicedata.cardHolder)
+            player = dogchoicedata.cardHolder
+            socket.emit('handsshuffle', player)
         }
     }
 })
@@ -355,8 +356,10 @@ socket.on('tradecardselect', (tradedata)=>{
 
 socket.on('maketrade', (tradedata)=>{
     $('#action').html(`<p><strong>${tradedata.turnPlayer.name}と${tradedata.chosenPlayer.name}がカードを交換しました。</strong></p>`)
-    socket.emit('handsshuffle', tradedata.turnPlayer)
-    socket.emit('handsshuffle', tradedata.chosenPlayer)
+    player = tradedata.turnPlayer
+    socket.emit('handsshuffle', player)
+    player = tradedata.chosenPlayer
+    socket.emit('handsshuffle', player)
 })
 
 
@@ -398,7 +401,8 @@ socket.on('witnessChoice', (data)=>{
         }
         $('#checkbuttonarea').show()
     }
-    socket.emit('handsshuffle', data.clickedPlayer)
+    player = data.clickedPlayer
+    socket.emit('handsshuffle', player)
     $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が${data.clickedPlayer.name}の手札を見ています。</strong></p>`);
 })
 

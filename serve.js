@@ -724,9 +724,9 @@ function clickCard(data){
   };
 }
 
-function arrayHasID(array, number){
+function arrayHasID(array, ID){
   for(item of array){
-    if(item.socketID === number){
+    if(item.socketID === ID){
       return true;
     }
   }
