@@ -69,6 +69,7 @@ class Player{
 
 
 io.on("connection", (socket)=>{
+  console.log(phase)
   if(!phase){
     io.to(socket.id).emit("nameDisplay", (playersName));
   }else{
