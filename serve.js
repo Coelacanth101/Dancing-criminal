@@ -31,7 +31,7 @@ app.get("/:file", (req, res)=>{
 //ゲーム用変数
 let nop;
 let playersName = ['','','','','','','','']
-let players
+let players = []
 let defaultCards;
 let usingCards;
 let turn;
