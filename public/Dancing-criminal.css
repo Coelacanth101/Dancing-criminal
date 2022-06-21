@@ -48,7 +48,7 @@ p{
                 border-bottom: 1.5px solid black;
             }
             .used{
-                width:auto;
+                width:100%;
                 height: calc(50% - 3px);
                 display: flex;
                 vertical-align: middle;
@@ -61,7 +61,8 @@ p{
                 }
                 .used img{
                     padding: 1%;
-                    min-width: 50px;
+                    width: auto;
+                    height: calc(100% - 3px)
                 }
 .buttonarea{
     width: 100%;
