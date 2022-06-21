@@ -71,6 +71,8 @@ class Player{
 io.on("connection", (socket)=>{
   if(!phase){
     io.to(socket.id).emit("nameDisplay", (playersName));
+  }else{
+    reload();
   }
 
   //名前の入力
@@ -129,7 +131,8 @@ io.on("connection", (socket)=>{
 //初期化 html書き換え
 function initialize(){
   playersName = ['','','','','','','','']
-  players = []
+  players = [];
+  phase = '';
   io.emit('initialize', (players))
 }
 
