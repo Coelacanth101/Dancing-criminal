@@ -473,7 +473,6 @@ function dogChoice(){
     loser = criminalSide;
     gameover();
   } else {
-    shuffle()
     phase ='checking'
   }
   io.emit('dogChoice', dogchoicedata)
@@ -735,12 +734,15 @@ function arrayHasID(array, ID){
 
 function shuffle(array){
   let newArray = []
-  for(c of array){
-    newArray.push(array[Math.floor(Math.random()*array.length)])
+  let i = array.length
+  while(i > 0){
+      let random = Math.floor(Math.random()*i)
+      newArray.push(array[random])
+      discard(array[random], array)
+      i = array.length
   }
-  array = newArray
+  return newArray
 }
-
 function handsshuffle(player){
-  shuffle(player.hands)
+  player.hands = shuffle(player.hands)
 }
