@@ -392,7 +392,7 @@ socket.on('playwitness', (data)=>{
 })
 
 socket.on('witnessChoice', (data)=>{
-    console.log(data.clickedplayer.hands)
+    console.log(data.clickedPlayer.hands)
     $(`#${data.clickedPlayer.id}`).css('border-color', 'red');
     if(data.turnPlayer.socketID === socket.id){
         let c = 1
@@ -404,7 +404,7 @@ socket.on('witnessChoice', (data)=>{
     }
     player = data.clickedPlayer
     socket.emit('handsshuffle', player)
-    console.log(data.clickedplayer.hands)
+    console.log(data.clickedPlayer.hands)
     $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が${data.clickedPlayer.name}の手札を見ています。</strong></p>`);
 })
 
