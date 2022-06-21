@@ -42,8 +42,6 @@ socket.on('initialize', (players)=>{
 })
 //初期化 html書き換え
 function initialize(){
-    /*playersName = ['','','','','','','','']
-    players = []*/
     $('#nameinputarea').show()
     $('#names').html(``)
     $('#action').html(``)

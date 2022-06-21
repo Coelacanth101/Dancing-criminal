@@ -127,6 +127,7 @@ io.on("connection", (socket)=>{
 function initialize(){
   playersName = ['','','','','','','','']
   players = []
+  io.emit('initialize', (players))
 }
 
 
