@@ -295,6 +295,7 @@ socket.on('dogChoice', (dogchoicedata)=>{
         $('#whoseturn').html(`<p><strong>${dogchoicedata.cardHolder.name}の${jpName(dogchoicedata.cardType)}を見ました。</strong></p>`)
         if(socket.id === dogchoicedata.turnPlayer.socketID){
             $('#checkbuttonarea').show();
+            socket.emit('handsshuffle', dogchoicedata.cardHolder)
         }
     }
 })
@@ -308,7 +309,7 @@ socket.on('playboy', (data)=>{
     if(data.turnPlayer.socketID === socket.id){
         $('#whoseturn').html(`<p><strong>${data.criminal.name}が犯人カードを持っています。</strong></p>`);
     }else{
-        $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が犯人カードを確認しています。</strong></p>`);
+        $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が犯人を確認しています。</strong></p>`);
     } 
     if(socket.id === data.turnPlayer.socketID){
         $('#checkbuttonarea').show();
@@ -354,6 +355,8 @@ socket.on('tradecardselect', (tradedata)=>{
 
 socket.on('maketrade', (tradedata)=>{
     $('#action').html(`<p><strong>${tradedata.turnPlayer.name}と${tradedata.chosenPlayer.name}がカードを交換しました。</strong></p>`)
+    socket.emit('handsshuffle', tradedata.turnPlayer)
+    socket.emit('handsshuffle', tradedata.chosenPlayer)
 })
 
 
@@ -395,13 +398,7 @@ socket.on('witnessChoice', (data)=>{
         }
         $('#checkbuttonarea').show()
     }
-    let cards = '';
-    let i = 1;
-    while(i <= data.clickedPlayer.hands.length){
-        cards += `,${jpName(data.clickedPlayer.hands[i-1])}`;
-        i += 1;
-    }
-    cards = cards.slice(1);
+    socket.emit('handsshuffle', data.clickedPlayer)
     $('#whoseturn').html(`<p><strong>${data.turnPlayer.name}が${data.clickedPlayer.name}の手札を見ています。</strong></p>`);
 })
 

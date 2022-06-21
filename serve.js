@@ -128,6 +128,11 @@ io.on("connection", (socket)=>{
     };
   });
 
+  //手札をシャッフル
+  socket.on('handsshuffle', (player)=>{
+    handsshuffle(player);
+  })
+
 });
 
 //初期化 html書き換え
@@ -468,6 +473,7 @@ function dogChoice(){
     loser = criminalSide;
     gameover();
   } else {
+    shuffle()
     phase ='checking'
   }
   io.emit('dogChoice', dogchoicedata)
@@ -560,6 +566,9 @@ function passCard(){
       i += 1;
   };
   io.emit('passCard', data)
+  for(player of players){
+    handsshuffle(player)
+  }
   criminalCheck();
   turnOver();
 };
@@ -722,4 +731,16 @@ function arrayHasID(array, number){
     }
   }
   return false
+}
+
+function shuffle(array){
+  let newArray = []
+  for(c of array){
+    newArray.push(array[Math.floor(Math.random()*array.length)])
+  }
+  array = newArray
+}
+
+function handsshuffle(player){
+  shuffle(player.hands)
 }

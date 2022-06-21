@@ -56,13 +56,14 @@ p{
                 border-top: 1.5px solid black;
             }
                 .hands img{
-                    min-width: 50px;
                     padding: 1%;
+                    width: auto;
+                    height: 40%
                 }
                 .used img{
                     padding: 1%;
                     width: auto;
-                    height: 30%
+                    height: 40%
                 }
 .buttonarea{
     width: 100%;
