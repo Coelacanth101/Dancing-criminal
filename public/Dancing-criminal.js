@@ -72,8 +72,11 @@ function inputAreaCreate(){
 }
 
 socket.on('nameDisplay', (playersName)=>{
+    console.log(playersName)
+    console.log('nameDisplay')
     let i = 1
     while(i<=8){
+        playersName[i-1].name
         if(playersName[i-1].name){
             $('#names').append(
                 `<div class="player${i-1}">
