@@ -39,6 +39,7 @@ clickCard()
 
 socket.on('initialize', (players)=>{
     initialize()
+    inputAreaCreate()
 })
 //初期化 html書き換え
 function initialize(){
@@ -55,7 +56,6 @@ function initialize(){
     $('#checkbuttonarea').hide()
     $('#newgamebuttonarea').hide()
     $('#initializebuttonarea').hide()
-    inputAreaCreate()
 }
 
 function inputAreaCreate(){
@@ -70,6 +70,27 @@ function inputAreaCreate(){
         i += 1;
     }
 }
+
+socket.on('nameDisplay', (playersName)=>{
+    let i = 1
+    while(i<=8){
+        if(playersName[i-1].name){
+            $('#names').append(
+                `<div class="player${i-1}">
+                <p><strong>${playersName[i-1].name}</strong></p>
+                </div>`
+            )
+        }else{
+            $('#names').append(
+                `<div class="player${i-1}">
+                <input type="text" class="nameinput" id="${i-1}">
+                <input type="button" value="決定" class="namebutton">
+                </div>`
+            );            
+        }
+        i += 1
+    }
+})
 
 //名前の入力発信
 $('#nameinputarea').on('click', '.namebutton', function(){
