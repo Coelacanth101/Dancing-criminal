@@ -74,6 +74,7 @@ function inputAreaCreate(){
 }
 
 socket.on('nameDisplay', (playersName)=>{
+    console.log('namedisplay')
     let i = 1
     while(i<=8){
         if(playersName[i-1]){
