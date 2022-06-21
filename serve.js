@@ -382,7 +382,9 @@ function gameover(){
   let result = win + lose + 'です。'
   phase = 'finished';
   for(w of winner){
-      w.score += loser.length;
+    if(winner.length){
+      w.score += loser.length / winner.length;
+    };
   };
   for(l of loser){
       l.score -= 1;
