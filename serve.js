@@ -713,8 +713,7 @@ function clickCard(data){
 function arrayHasID(array, number){
   for(item of array){
     if(item.socketID === number){
-      return true
-      break
+      return true;
     }
   }
   return false

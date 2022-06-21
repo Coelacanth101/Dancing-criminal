@@ -55,7 +55,6 @@ function initialize(){
     $('#scorearea').hide()
     $('#checkbuttonarea').hide()
     $('#newgamebuttonarea').hide()
-    $('#initializebuttonarea').hide()
 }
 
 function inputAreaCreate(){
@@ -155,7 +154,6 @@ socket.on('newGame', (data)=>{
     $('#scorearea').show();
     $('#checkbuttonarea').hide()
     $('#newgamebuttonarea').show();
-    $('#initializebuttonarea').show();
 })
 
 //ターン終了 html書き換え
