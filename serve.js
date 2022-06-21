@@ -69,11 +69,10 @@ class Player{
 
 
 io.on("connection", (socket)=>{
-  console.log(phase)
   if(!phase){
     io.to(socket.id).emit("nameDisplay", (playersName));
   }else{
-    io.emit('newGame', players)
+    io.to(socket.id).emit('newGame', players)
     playerDisplay()
     reload();
   }
