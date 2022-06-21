@@ -70,9 +70,9 @@ class Player{
 
 io.on("connection", (socket)=>{
   if(!phase){
-    io.emit("nameDisplay", (playersName));
+    io.to(socket.id).emit("nameDisplay", (playersName));
   }
-  
+
   //名前の入力
   socket.on("nameInput", (data)=>{
     if(!arrayHasID(playersName, socket.id)){
