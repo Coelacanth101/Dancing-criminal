@@ -72,6 +72,8 @@ io.on("connection", (socket)=>{
   if(!phase){
     io.to(socket.id).emit("nameDisplay", (playersName));
   }else{
+    io.emit('newGame', players)
+    playerDisplay()
     reload();
   }
 
