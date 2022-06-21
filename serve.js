@@ -72,9 +72,9 @@ io.on("connection", (socket)=>{
   if(!phase){
     io.to(socket.id).emit("nameDisplay", (playersName));
   }else{
-    io.to(socket.id).emit('newGame', players)
-    playerDisplay()
-    reload();
+    io.to(socket.id).emit('newGame', players);
+    io.to(socket.id).emit('playerDisplay', players);
+    io.to(socket.id).emit('reload', players);
   }
 
   //名前の入力

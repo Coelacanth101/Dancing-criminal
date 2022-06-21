@@ -146,6 +146,7 @@ socket.on('playerDisplay', (players)=>{
 
 //進行状況初期化 html書き換え
 socket.on('newGame', (data)=>{
+    $('#nameinputarea').hide();
     $('#action').html('');
     $('#whoseturn').html('');
     $('#action').show();
